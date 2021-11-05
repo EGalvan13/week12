@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperture Esau Galvan</title>
+    <style>
+        body{
+            background: linear-gradient(to right, darkblue 25%, yellow 100%);
+            color: white;
+        }
+        .tableclass{
+            border: solid lightblue 5px;
+        }
+        h1{
+            font-size: 40px;
+            font-style: italic;
+        }
+        div{
+            font-size: 20px;
+        }
+        a:link, a:visited{
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+    </style>
+</head>
+
+<body>
+    <table class="tableclass"><tr><td>
+    <form name="theform">
+        <h1>Temperture Converter</h1>
+        <div>
+        Calculate farenheit to celcius: ex. (68F - 32) x 5/9 = 20C<br>
+        Calculate celcius to farenheit: ex. (20C * 1.8) + 32 = 68F
+    </div>
+        <table>
+                <tr>
+                    <td rowspan="6"><img src="temp.png" alt="picture of book" width="250px" height="250px"></td>
+                    <td style="float: right;"><strong>Enter temperture vaule in farenheit:</strong></td>
+                    <td><input name="farenheit" size="10"></td>
+                </tr>
+                <tr>
+                    <td style="float: right;"><strong>Celcius:</strong></td>
+                    <td style="background-color:white; color: black" id="celciusoutput"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    <input type="button" name="calc" value="Calculate" onclick="calculate1();">
+                    <input type="button" name="clear" value="Clear" onclick="clearinfo1();">
+                    </td>
+                </tr>
+                <tr>
+                <td style="float: right;"><strong>Enter temperture vaule in celcius:</strong></td>
+                <td><input name="celcius" size="10"></td>
+                </tr>
+                <tr>
+                    <td style="float: right;"><strong>Farenheit:</strong></td>
+                    <td style="background-color:white; color: black" id="farenheitoutput"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                    <input type="button" name="calc" value="Calculate" onclick="calculate2();">
+                    <input type="button" name="clear" value="Clear" onclick="clearinfo2();">
+                    </td>
+                </tr>
+        </table>
+    </form>
+</td></tr></table>
+    <script>
+        document.theform.farenheit.focus();
+        function calculate1() {
+            const tep1 = 32;
+            const tep2 = 5;
+            const tep3 = 9;
+
+            var temp;
+            var averagecelcius;
+
+            temp = parseFloat(document.theform.farenheit.value);
+            averagecelcius = parseFloat((temp - tep1) * (tep2 / tep3));
+            document.getElementById("celciusoutput").innerHTML = averagecelcius.toFixed(0);
+        }
+        function calculate2() {
+            const te1 = 1.8;
+            const te2 = 32;
+
+            var tempp;
+            var averagefarenheit;
+
+            tempp = parseFloat(document.theform.celcius.value);
+            averagefarenheit = parseFloat((tempp * te1) + te2);
+            document.getElementById("farenheitoutput").innerHTML = averagefarenheit.toFixed(0);
+        }
+        function clearinfo1() {
+            document.theform.farenheit.value = "";
+            document.theform.celciusoutput.value = "";
+
+            document.getElementById("farenheit").innerHTML = " ";
+            document.getElementById("celciusoutput").innerHTML = " ";
+
+            document.theform.practiceFmInput.focus();
+
+        }
+        function clearinfo2() {
+            document.theform.celcius.value = "";
+            document.theform.farenheitoutput.value = "";
+
+            document.getElementById("celcius").innerHTML = " ";
+            document.getElementById("farenheitoutput").innerHTML = " ";
+
+            document.theform.practiceFmInput.focus();
+
+        }
+    </script>
+<a href="http://csnet.southtexascollege.edu/localuser/egalva25/">Go Back to Homepage - Esau Galvan</a>
+</body>
+
+</html>

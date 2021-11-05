@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <style>
+        body{
+            background: linear-gradient(to right, green 0%, pink 100%);
+        }
+        .tableclass{
+            border: solid darkgreen 5px;
+        }
+        h1{
+            font-size: 40px;
+            font-style: italic;
+        }
+        div{
+            font-size: 20px;
+        }
+        a:link, a:visited{
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+    }
+    </style>
+</head>
+
+<body>
+<table class="tableclass"><tr><td>
+    <h1>Currency Converter</h1>
+    <div>Convert USA Dollars to other currencies</div>
+    <form name="theform">
+        <table>
+            <tr>
+                <td rowspan="10"><img src="money.png" alt="picture of book" width="250px" height="250px"></td>
+                <td style="float: right;"><strong>Enter USA dollar amount: </strong></td>
+                <td><input name="usa" size="10"></td>
+            </tr>
+            <tr>
+                <td style="float: right;"><strong>Euro:</strong></td>
+                <td style="background-color:white; color: black" id="euroOutput"></td>
+            </tr>
+            <tr>
+                <td style="float: right;"><strong>Pound sterling:</strong></td>
+                <td style="background-color:white; color: black" id="poundOutput"></td>
+            </tr>
+            <tr>
+                <td style="float: right;"><strong>Australian Dollar:</strong></td>
+                <td style="background-color:white; color: black" id="australianOutput"></td>
+            </tr>
+            <tr>
+                <td style="float: right;"><strong>Mexican Pesos:</strong></td>
+                <td style="background-color:white; color: black" id="mexicanOutput"></td>
+            </tr>
+            <tr>
+                <td style="float: right;"><strong>Canadian Dollae:</strong></td>
+                <td style="background-color:white; color: black" id="canadianOutput"></td>
+            </tr>
+            <tr>
+                <td style="float: right;"><strong>Turkish lira:</strong></td>
+                <td style="background-color:white; color: black" id="turkishOutput"></td>
+            </tr>
+            <tr>
+                <td style="float: right;"><strong>Japanese yen:</strong></td>
+                <td style="background-color:white; color: black" id="japaneseOutput"></td>
+            </tr>
+            <tr>
+                <td style="float: right;"><strong>Swiss franc:</strong></td>
+                <td style="background-color:white; color: black" id="swissOutput"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" name="calc" value="Calculate" onclick="calculate();">
+                    <input type="button" name="clear" value="Clear" onclick="clearinfo();">
+                </td>
+            </tr>
+        </table>
+    </form>
+</td></tr></table>
+    <script>
+        document.theform.usa.focus();
+        function calculate() {
+            const euro = 0.86541;
+            const pound = 0.74138;
+            const aust = 1.3518;
+            const mex = 20.360;
+            const can = 1.2453;
+            const turk = 9.6981;
+            const jap = 113.38;
+            const swiss = 0.91202;
+
+            var usa1;
+
+            usa1 = parseFloat(document.theform.usa.value);
+            averageeuro = parseFloat(usa1 * euro);
+            averagepound = parseFloat(usa1 * pound);
+            averageaust = parseFloat(usa1 * aust);
+            averagmex = parseFloat(usa1 * mex);
+            averagecan = parseFloat(usa1 * can);
+            averageturk = parseFloat(usa1 * turk);
+            averagejap = parseFloat(usa1 * jap);
+            averageswiss = parseFloat(usa1 * swiss);
+
+            document.getElementById("euroOutput").innerHTML = averageeuro.toFixed(2);
+            document.getElementById("poundOutput").innerHTML = averagepound.toFixed(2);
+            document.getElementById("australianOutput").innerHTML = averageaust.toFixed(2);
+            document.getElementById("mexicanOutput").innerHTML = averagmex.toFixed(2);
+            document.getElementById("canadianOutput").innerHTML = averagecan.toFixed(2);
+            document.getElementById("turkishOutput").innerHTML = averageturk.toFixed(2);
+            document.getElementById("japaneseOutput").innerHTML = averagejap.toFixed(2);
+            document.getElementById("swissOutput").innerHTML = averageswiss.toFixed(2);
+        }
+        function clearinfo() {
+            document.theform.usa.value = "";
+
+            document.getElementById("euroOutput").innerHTML = " ";
+            document.getElementById("poundOutput").innerHTML = " ";
+            document.getElementById("australianOutput").innerHTML = " ";
+            document.getElementById("mexicanOutput").innerHTML = " ";
+            document.getElementById("canadianOutput").innerHTML = " ";
+            document.getElementById("turkishOutput").innerHTML = " ";
+            document.getElementById("japaneseOutput").innerHTML = " ";
+            document.getElementById("swissOutput").innerHTML = " ";
+
+        }
+
+    </script>
+    <a href="http://csnet.southtexascollege.edu/localuser/egalva25/">Go Back to Homepage - Esau Galvan</a>
+</body>
+</html>
